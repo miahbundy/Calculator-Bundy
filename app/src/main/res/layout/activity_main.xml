@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:columnCount="4"
-    android:rowCount="5"
+    android:rowCount="8"
     android:layout_centerInParent="true"
     android:paddingLeft="@dimen/activity_horizontal_margin">
 
@@ -18,7 +18,8 @@
         android:id="@+id/cBut"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_row="1"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:onClick="c"/>
 
     <Button
         android:text="@string/ce"
@@ -39,105 +40,120 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/divBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="div"/>
 
     <Button
         android:text="@string/seven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/seven"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="seven"/>
 
     <Button
         android:text="@string/eight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/eight"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="eight"/>
 
     <Button
         android:text="@string/nine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/nine"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="nine"/>
 
     <Button
         android:text="@string/mult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/multBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="mult"/>
 
     <Button
         android:text="@string/four"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/four"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="four"/>
 
     <Button
         android:text="@string/five"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/five"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="five"/>
 
     <Button
         android:text="@string/six"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/six"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="six"/>
 
     <Button
         android:text="@string/sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/subBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="sub"/>
 
     <Button
         android:text="@string/one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/one"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="one" />
 
     <Button
         android:text="@string/two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/two"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="two" />
 
     <Button
         android:text="@string/three"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/three"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="three"/>
 
     <Button
         android:text="@string/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="add"/>
 
     <Button
         android:text="@string/point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pointBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="point"/>
 
     <Button
         android:text="@string/zero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/zero"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="zero" />
 
     <Button
         android:text="@string/equal"
@@ -145,10 +161,10 @@
         android:layout_height="50dp"
         android:layout_columnSpan="2"
         android:id="@+id/equalBut"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:onClick="equal"/>
 
     <TextView
-        android:text="TextView"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_column="0"
@@ -158,5 +174,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:gravity="center" />
 
+    <TextView
+        android:layout_column="1"
+        android:layout_row="6"
+        android:id="@+id/operation"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_columnSpan="2"
+        android:gravity="center"
+        android:text="" />
+
+    />
 
 </GridLayout>
