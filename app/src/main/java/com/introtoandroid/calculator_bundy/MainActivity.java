@@ -131,38 +131,59 @@ public class MainActivity extends AppCompatActivity {
         txt = "";
     }
 
+    public void posOrNeg(View view){
+        String input = tv.getText().toString();
+
+        if (input == "" | input=="0"){}
+
+        else {
+
+            Double intInput = Double.parseDouble(input);
+
+            intInput = -intInput;
+
+            input = intInput.toString();
+
+            tv.setText(input);
+        }
+
+    }
+
     public void equal(View view){
         pt2 = tv.getText().toString();
 
         String whichOp = operation.getText().toString();
 
-        String ans;
+        String ans ="";
 
-        int part1 = Integer.parseInt(pt1);
-        int part2 = Integer.parseInt(pt2);
+        Double part1 = Double.parseDouble(pt1);
+        Double part2 = Double.parseDouble(pt2);
 
         if (whichOp.equals("+")){
-            Integer answer = part1+part2;
+            Double answer = part1+part2;
             ans = answer.toString();
             tv.setText(ans);
         }
 
         else if (whichOp.equals("-")){
-            Integer answer = part1-part2;
+            Double answer = part1-part2;
             ans = answer.toString();
             tv.setText(ans);
         }
 
         else if (whichOp.equals("x")){
-            Integer answer = part1*part2;
+            Double answer = part1*part2;
             ans = answer.toString();
             tv.setText(ans);
         }
 
         else if (whichOp.equals("d")){
-            Integer answer = part1/part2;
+            Double answer = part1/part2;
             ans = answer.toString();
             tv.setText(ans);
         }
+
+        pt1 = ans;
+        pt2 = "";
     }
 }

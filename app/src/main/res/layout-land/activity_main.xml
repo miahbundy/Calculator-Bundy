@@ -168,7 +168,8 @@
         android:id="@+id/posOrNegBut"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_row="4"
-        android:layout_column="4" />
+        android:layout_column="4"
+        android:onClick="posOrNeg"/>
 
     <Button
         android:text="@string/add"
