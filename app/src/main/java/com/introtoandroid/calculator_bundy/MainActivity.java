@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
             equal(view);
             op = "-";
             operation.setText(op);
+            txt = "";
+
         }
     }
 
@@ -142,6 +144,8 @@ public class MainActivity extends AppCompatActivity {
             equal(view);
             op = "x";
             operation.setText(op);
+            txt = "";
+
         }
     }
 
@@ -159,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
             equal(view);
             op = "d";
             operation.setText(op);
+            txt = "";
+
         }
     }
 
