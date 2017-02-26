@@ -11,9 +11,9 @@ public class MainActivity extends AppCompatActivity {
     TextView operation;
 
     String txt = "";
-    String pt1;
+    String pt1= "";
     String op = "";
-    String pt2;
+    String pt2="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         tv = (TextView) findViewById(R.id.textView3);
         operation = (TextView) findViewById(R.id.operation);
+        operation.setText("");
+        tv.setText(txt);
 
 
     }
@@ -85,50 +87,79 @@ public class MainActivity extends AppCompatActivity {
 
     public void c(View view){
         txt = "";
+        pt1 = "";
+        pt2 = "";
+        op = "";
         tv.setText(txt);
+        operation.setText(op);
     }
 
     public void add(View view){
-        String old = tv.getText().toString();
-        //int oldNum = Integer.parseInt(old);
+        if(operation.getText().toString() == "") {
+            pt1 = tv.getText().toString();
+            op = "+";
+            operation.setText(op);
 
-        pt1 = old;
-
-        op = "+";
-        operation.setText(op);
-
-        //tv.setText(txt);
-        txt = "";
+            txt = "";
+            tv.setText(txt);
+        }
+        else{
+            equal(view);
+            op = "+";
+            operation.setText(op);
+            txt = "";
+            //tv.setText(txt);
+        }
     }
 
     public void sub(View view){
-        pt1 = tv.getText().toString();
+        if(operation.getText().toString() == "") {
+            pt1 = tv.getText().toString();
 
-        op = "-";
-        operation.setText(op);
+            op = "-";
+            operation.setText(op);
 
-        //tv.setText(txt);
-        txt = "";
+            txt = "";
+        }
+        else{
+            equal(view);
+            op = "-";
+            operation.setText(op);
+        }
     }
 
     public void mult(View view){
-        pt1 = tv.getText().toString();
+        if(operation.getText().toString() == "") {
+            pt1 = tv.getText().toString();
 
-        op = "x";
-        operation.setText(op);
+            op = "x";
+            operation.setText(op);
 
-        //tv.setText(txt);
-        txt = "";
+            //tv.setText(txt);
+            txt = "";
+        }
+        else{
+            equal(view);
+            op = "x";
+            operation.setText(op);
+        }
     }
 
-    public void div(View view){
-        pt1 = tv.getText().toString();
+    public void div(View view) {
+        if(operation.getText().toString() == "") {
+            pt1 = tv.getText().toString();
 
-        op = "d";
-        operation.setText(op);
+            op = "d";
+            operation.setText(op);
 
-        //tv.setText(txt);
-        txt = "";
+            //tv.setText(txt);
+            txt = "";
+        }
+        else{
+            equal(view);
+            op = "d";
+            operation.setText(op);
+        }
     }
 
     public void posOrNeg(View view){
@@ -150,40 +181,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void equal(View view){
-        pt2 = tv.getText().toString();
 
-        String whichOp = operation.getText().toString();
+        if(operation.getText().toString() != "=") {
 
-        String ans ="";
+            String whichOp = operation.getText().toString();
 
-        Double part1 = Double.parseDouble(pt1);
-        Double part2 = Double.parseDouble(pt2);
+            op = "=";
+            operation.setText(op);
 
-        if (whichOp.equals("+")){
-            Double answer = part1+part2;
-            ans = answer.toString();
-            tv.setText(ans);
+            pt2 = tv.getText().toString();
+
+
+
+            if (whichOp== "") {
+
+            }
+
+            else {
+
+                String ans = "";
+
+                Double part1 = Double.parseDouble(pt1);
+                Double part2 = Double.parseDouble(pt2);
+
+                if (whichOp.equals("+")) {
+                    Double answer = part1 + part2;
+                    ans = answer.toString();
+                    tv.setText(ans);
+                }
+
+                else if (whichOp.equals("-")) {
+                    Double answer = part1 - part2;
+                    ans = answer.toString();
+                    tv.setText(ans);
+                }
+
+                else if (whichOp.equals("x")) {
+                    Double answer = part1 * part2;
+                    ans = answer.toString();
+                    tv.setText(ans);
+                }
+
+                else if (whichOp.equals("d")) {
+                    Double answer = part1 / part2;
+                    ans = answer.toString();
+                    tv.setText(ans);
+                }
+
+                pt1 = ans;
+                pt2 = "";
+                txt = "";
+            }
         }
-
-        else if (whichOp.equals("-")){
-            Double answer = part1-part2;
-            ans = answer.toString();
-            tv.setText(ans);
-        }
-
-        else if (whichOp.equals("x")){
-            Double answer = part1*part2;
-            ans = answer.toString();
-            tv.setText(ans);
-        }
-
-        else if (whichOp.equals("d")){
-            Double answer = part1/part2;
-            ans = answer.toString();
-            tv.setText(ans);
-        }
-
-        pt1 = ans;
-        pt2 = "";
     }
 }
