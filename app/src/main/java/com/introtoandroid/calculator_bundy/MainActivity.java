@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         operation.setText("");
         tv.setText(txt);
 
+        if(savedInstanceState!=null){
+            pt1 = savedInstanceState.getString("inTV");
+            op = savedInstanceState.getString("inOP");
+        }
+
 
     }
 
@@ -275,5 +280,18 @@ public class MainActivity extends AppCompatActivity {
             operation.setText(op);
         }
 
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putString("inTV", tv.getText().toString());
+        outState.putString("inOP", operation.getText().toString());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        tv.setText(savedInstanceState.getString("inTV"));
+        operation.setText(savedInstanceState.getString("inOP"));
     }
 }
