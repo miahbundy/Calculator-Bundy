@@ -332,6 +332,9 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putString("inTV", tv.getText().toString());
         outState.putString("inOP", operation.getText().toString());
+        outState.putString("past", past.getText().toString());
+        outState.putString("past2", past2.getText().toString());
+        outState.putString("past3", past3.getText().toString());
     }
 
     @Override
@@ -339,5 +342,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         tv.setText(savedInstanceState.getString("inTV"));
         operation.setText(savedInstanceState.getString("inOP"));
+        past.setText(savedInstanceState.getString("past"));
+        past2.setText(savedInstanceState.getString("past2"));
+        past3.setText(savedInstanceState.getString("past3"));
     }
 }
