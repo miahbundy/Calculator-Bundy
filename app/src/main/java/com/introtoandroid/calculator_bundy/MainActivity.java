@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     String pt1= "";
     String op = "";
     String pt2="";
+    String lastPressed = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,61 +32,79 @@ public class MainActivity extends AppCompatActivity {
     public void zero(View view) {
         txt += "0";
         tv.setText(txt);
+        lastPressed = "num";
     }
 
     public void one(View view){
         txt += "1";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void two(View view){
         txt += "2";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void three(View view){
         txt += "3";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void four(View view){
         txt += "4";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void five(View view){
         txt += "5";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void six(View view){
         txt += "6";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void seven(View view){
         txt += "7";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void eight(View view){
         txt += "8";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void nine(View view){
         txt += "9";
         tv.setText(txt);
+        lastPressed = "num";
+
     }
 
     public void point(View view){
         txt += ".";
         tv.setText(txt);
+        lastPressed = "num";
     }
 
-
-
-    public void c(View view){
+    public void ce(View view){
         txt = "";
         pt1 = "";
         pt2 = "";
@@ -95,13 +114,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add(View view){
+        lastPressed = "op";
         if(operation.getText().toString() == "") {
             pt1 = tv.getText().toString();
             op = "+";
             operation.setText(op);
 
             txt = "";
-            tv.setText(txt);
+            //tv.setText(txt);
         }
         else{
             equal(view);
@@ -113,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sub(View view){
+        lastPressed = "op";
         if(operation.getText().toString() == "") {
             pt1 = tv.getText().toString();
 
@@ -131,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mult(View view){
+        lastPressed = "op";
         if(operation.getText().toString() == "") {
             pt1 = tv.getText().toString();
 
@@ -150,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void div(View view) {
+        lastPressed = "op";
         if(operation.getText().toString() == "") {
             pt1 = tv.getText().toString();
 
@@ -169,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void posOrNeg(View view){
+        lastPressed = "num";
         String input = tv.getText().toString();
 
         if (input == "" | input=="0"){}
@@ -239,5 +263,17 @@ public class MainActivity extends AppCompatActivity {
                 txt = "";
             }
         }
+    }
+
+    public void c(View view){
+        if (lastPressed == "num"){
+            txt = "";
+            tv.setText(txt);
+        }
+        else if(lastPressed == "op"){
+            op = "";
+            operation.setText(op);
+        }
+
     }
 }

@@ -208,7 +208,8 @@
         android:id="@+id/ceBut"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_row="1"
-        android:layout_column="4" />
+        android:layout_column="4"
+        android:onClick="ce"/>
 
     <TextView
         android:layout_column="6"
