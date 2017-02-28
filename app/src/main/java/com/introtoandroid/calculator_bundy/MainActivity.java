@@ -9,12 +9,18 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tv;
     TextView operation;
+    TextView past;
+    TextView past2;
+    TextView past3;
+    TextView lastPast;
+
 
     String txt = "";
     String pt1= "";
     String op = "";
     String pt2="";
     String lastPressed = "";
+    String pastOp="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         operation = (TextView) findViewById(R.id.operation);
         operation.setText("");
         tv.setText(txt);
+
+        past = (TextView)findViewById(R.id.textView6);
+        past2 = (TextView)findViewById(R.id.textView4);
+        past3 = (TextView)findViewById(R.id.tv8);
+        lastPast = (TextView)findViewById(R.id.textView14);
+
+
 
         if(savedInstanceState!=null){
             pt1 = savedInstanceState.getString("inTV");
@@ -120,8 +133,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void add(View view){
         lastPressed = "op";
+        pt1 = tv.getText().toString();
+
         if(operation.getText().toString() == "") {
-            pt1 = tv.getText().toString();
             op = "+";
             operation.setText(op);
 
@@ -139,59 +153,69 @@ public class MainActivity extends AppCompatActivity {
 
     public void sub(View view){
         lastPressed = "op";
+        pt1 = tv.getText().toString();
+
         if(operation.getText().toString() == "") {
-            pt1 = tv.getText().toString();
 
             op = "-";
             operation.setText(op);
 
             txt = "";
+            //tv.setText(txt);
+
         }
         else{
             equal(view);
             op = "-";
             operation.setText(op);
             txt = "";
+            //tv.setText(txt);
 
         }
     }
 
     public void mult(View view){
         lastPressed = "op";
+        pt1 = tv.getText().toString();
+
         if(operation.getText().toString() == "") {
-            pt1 = tv.getText().toString();
 
             op = "x";
             operation.setText(op);
 
-            //tv.setText(txt);
             txt = "";
+            //tv.setText(txt);
+
         }
         else{
             equal(view);
             op = "x";
             operation.setText(op);
             txt = "";
+            //tv.setText(txt);
 
         }
     }
 
     public void div(View view) {
         lastPressed = "op";
-        if(operation.getText().toString() == "") {
-            pt1 = tv.getText().toString();
+        pt1 = tv.getText().toString();
+        if(operation.getText().toString().equals("")) {
 
-            op = "d";
+            op = "/";
             operation.setText(op);
 
-            //tv.setText(txt);
             txt = "";
+            //tv.setText(txt);
+
         }
         else{
             equal(view);
-            op = "d";
+            op = "/";
             operation.setText(op);
             txt = "";
+            //tv.setText(txt);
+
 
         }
     }
@@ -217,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void equal(View view){
 
+
         if(operation.getText().toString() != "=") {
 
             String whichOp = operation.getText().toString();
@@ -226,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
             pt2 = tv.getText().toString();
 
-
+            String ans = "";
 
             if (whichOp== "") {
 
@@ -234,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
 
             else {
 
-                String ans = "";
+
 
                 Double part1 = Double.parseDouble(pt1);
                 Double part2 = Double.parseDouble(pt2);
@@ -257,16 +282,37 @@ public class MainActivity extends AppCompatActivity {
                     tv.setText(ans);
                 }
 
-                else if (whichOp.equals("d")) {
+                else if (whichOp.equals("/")) {
                     Double answer = part1 / part2;
                     ans = answer.toString();
                     tv.setText(ans);
+                }
+                if(past.getText().toString().equals("")){
+                    pastOp = pt1+whichOp+pt2+"="+ans;
+                    past.setText(pastOp);
+                    }
+
+                else if(past2.getText().toString().equals("")){
+                    pastOp = pt1+whichOp+pt2+"="+ans;
+                    past2.setText(pastOp);}
+
+                else if(past3.getText().toString().equals("")){
+                    pastOp = pt1+whichOp+pt2+"="+ans;
+                    past3.setText(pastOp);
+                    }
+
+                else if(lastPast.getText().toString().equals("TextView")){
+                    pastOp = pt1+whichOp+pt2+"="+ans;
+                    past.setText(past2.getText().toString());
+                    past2.setText(past3.getText().toString());
+                    past3.setText(pastOp);
                 }
 
                 pt1 = ans;
                 pt2 = "";
                 txt = "";
             }
+
         }
     }
 
